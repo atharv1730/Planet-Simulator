@@ -48,9 +48,10 @@ def main():
     sun.sun = True
     
     earth = Planet(-1 * Planet.AU, 0, 16, (0, 0, 255), 5.9742e24)  # Earth
-    
+
+    mars = Planet(-1.524 * Planet.AU, 0, 12, (255, 0, 0), 6.39e23)  # Mars 
         
-    planets = [sun, earth]
+    planets = [sun, earth, mars]
     
     while run:
         clock.tick(60)  # Limit to 60 frames per second
