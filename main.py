@@ -44,6 +44,10 @@ def main():
     # Used to control the frame rate
     clock = pygame.time.Clock()
     
+    sun = Planet(0, 0, 30, (255, 255, 0), 1.98892e30)  # Sun
+    sun.sun = True
+    
+    planets = [sun]
     
     while run:
         clock.tick(60)  # Limit to 60 frames per second
@@ -54,6 +58,10 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+        for planet in planets:
+            planet.draw(win)
+        pygame.display.update()
 
     
     pygame.quit()
