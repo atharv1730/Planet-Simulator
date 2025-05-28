@@ -50,8 +50,12 @@ def main():
     earth = Planet(-1 * Planet.AU, 0, 16, (0, 0, 255), 5.9742e24)  # Earth
 
     mars = Planet(-1.524 * Planet.AU, 0, 12, (255, 0, 0), 6.39e23)  # Mars 
+    
+    mercury = Planet(0.387 * Planet.AU, 0, 8, (150, 150, 150), 3.30e23)  # Mercury
+    
+    venus = Planet(0.723 * Planet.AU, 0, 14, (255, 165, 50), 4.8685e24)  # Venus
         
-    planets = [sun, earth, mars]
+    planets = [sun, earth, mars, mercury, venus]
     
     while run:
         clock.tick(60)  # Limit to 60 frames per second
