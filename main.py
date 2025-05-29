@@ -33,6 +33,8 @@ class Planet:
         self.x_velocity = 0
         self.y_velocity = 0
 
+    # Drawing the planets and their orbits
+    # Adding text
     def draw(self, win):
         x = self.x * self.SCALE + WIDTH / 2
         y = self.y * self.SCALE + HEIGHT / 2
@@ -57,6 +59,7 @@ class Planet:
             text = FONT.render(f"{round(self.distance_from_sun / 1000, 1)} km", True, (255, 255, 255))
             win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
             
+    # Handling the gravitational attraction between planets
     def attraction(self, other):
         other_x, other_y = other.x, other.y
         distance_x = other_x - self.x
@@ -72,6 +75,7 @@ class Planet:
         force_y = force * math.sin(theta)
         return force_x, force_y
 
+    # Updating positions to make them revolve around the sun
     def update_position(self, planets):
         total_fx = total_fy = 0
         
