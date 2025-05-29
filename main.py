@@ -84,12 +84,16 @@ def main():
     sun.sun = True
     
     earth = Planet(-1 * Planet.AU, 0, 16, (0, 0, 255), 5.9742e24)  # Earth
+    earth.y_velocity = 29.783e3
 
-    mars = Planet(-1.524 * Planet.AU, 0, 12, (255, 0, 0), 6.39e23)  # Mars 
+    mars = Planet(-1.524 * Planet.AU, 0, 12, (255, 0, 0), 6.39e23)  # Mars
+    mars.y_velocity = 24.077e3
     
     mercury = Planet(0.387 * Planet.AU, 0, 8, (150, 150, 150), 3.30e23)  # Mercury
+    mercury.y_velocity = -47.4e3
     
     venus = Planet(0.723 * Planet.AU, 0, 14, (255, 165, 50), 4.8685e24)  # Venus
+    venus.y_velocity = -35.02e3
         
     planets = [sun, earth, mars, mercury, venus]
     
