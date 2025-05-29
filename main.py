@@ -52,6 +52,27 @@ class Planet:
         force_y = force * math.sin(theta)
         return force_x, force_y
 
+    def update_position(self, planets):
+        total_fx = total_fy = 0
+        
+        for planet in planets:
+            if planet == self:
+                continue
+            fx, fy = self.attraction(planet)
+            total_fx += fx
+            total_fy += fy
+            
+        # Update velocities based on the forces
+        self.x_velocity += total_fx / self.mass * self.TIMESTEP
+        self.y_velocity += total_fy / self.mass * self.TIMESTEP
+        
+        # Update position based on the velocities
+        self.x += self.x_velocity * self.TIMESTEP
+        self.y += self.y_velocity * self.TIMESTEP
+        
+        # Store the orbit path
+        if not self.sun:
+            self.orbit.append((self.x, self.y))
 
 
 def main():
