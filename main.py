@@ -48,10 +48,15 @@ class Planet:
                 
         pygame.draw.circle(win, self.color, (x, y), self.radius)
         
-        if not self.sun:
-            text = FONT.render(f"{round(self.distance_from_sun / 1000, 1)} km", 1, (255, 255, 255))
+        if self.sun:
+        # Display the label "Sun"
+            text = FONT.render("Sun", True, (255, 0, 0))
             win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
-        
+        else:
+            # Show distance from the Sun
+            text = FONT.render(f"{round(self.distance_from_sun / 1000, 1)} km", True, (255, 255, 255))
+            win.blit(text, (x - text.get_width() / 2, y - text.get_height() / 2))
+            
     def attraction(self, other):
         other_x, other_y = other.x, other.y
         distance_x = other_x - self.x
