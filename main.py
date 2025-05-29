@@ -95,6 +95,8 @@ def main():
     # Used to control the frame rate
     clock = pygame.time.Clock()
     
+    # Creating planets
+    # Treating the sun as a special planet
     sun = Planet(0, 0, 30, (255, 255, 0), 1.98892e30)  # Sun
     sun.sun = True
     
